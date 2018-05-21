@@ -11,8 +11,10 @@ import javax.inject.Inject
 class MainActivity : DaggerAppCompatActivity(), MainActivityView {
 
 
+    @Inject lateinit var localRepository: LocalRepository
+
     override fun presenterDone() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
 
@@ -24,6 +26,8 @@ class MainActivity : DaggerAppCompatActivity(), MainActivityView {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        App.storageComponent!!.inject(this)
+        println(localRepository)
         //App.musicComponent.inject(this)
       //  println(musicInstance)
     }

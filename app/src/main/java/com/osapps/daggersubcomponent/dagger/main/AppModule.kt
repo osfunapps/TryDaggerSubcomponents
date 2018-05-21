@@ -9,9 +9,9 @@ import javax.inject.Singleton
 
 
 @Module
-class AppModule(@NonNull private val appContext: Context) {
+class AppModule {
 
     @Provides
-    @Singleton
-    fun provideContext(): Context = appContext
+    @MainScope
+    fun provideContext(application: Application): Context = application
 }
